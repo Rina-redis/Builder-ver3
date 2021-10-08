@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Character
-  - building
   - Enemy
+  - Building
+  - building
   layers:
   - Default
   - TransparentFX

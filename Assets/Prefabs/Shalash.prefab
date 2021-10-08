@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8902741291049345352}
   - component: {fileID: 5918026201037622966}
   m_Layer: 0
-  m_Name: vigvam
-  m_TagString: building
+  m_Name: Shalash
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804011069654910661}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

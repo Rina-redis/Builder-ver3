@@ -10,8 +10,8 @@ public enum State
 }
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float damage = 10f;   
-    [SerializeField] Transform spawnPosition;
+    [SerializeField] private float damage = 10f;   
+    [SerializeField] private Transform spawnPosition;
     public State state = State.CanAttack;
     private Transform closestBuilding;
     private GameObject[] buildings;
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     private GameObject[] FindAllBuildings()
     {
-        return buildings = GameObject.FindGameObjectsWithTag("building");
+        return buildings = GameObject.FindGameObjectsWithTag("Building");
     }
     private GameObject ClosestBuilding(GameObject[] buildingsArray)
     {
