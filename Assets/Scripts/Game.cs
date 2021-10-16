@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
     public GameStatistic gameStatistic;
     public CharacterStatistic characterStatistic;
     public UI ui;
+
     private static Game instance;
     public static Game Instance
     {
@@ -26,7 +27,7 @@ public class Game : MonoBehaviour
     {
         characterStatistic.onChangedTxt += ui.ChangeCharacterStatisticUI;
         gameStatistic.onChangedAliveBuildingsCount += ui.ChangeGameStatisticUI;
-        gameStatistic.onChangedAliveTime += ui.ChangeGameStatisticUI;
+        gameStatistic.onChangedAliveTime += ui.ChangeGameAliveTimeUI;
     }
 
 }

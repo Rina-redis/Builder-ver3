@@ -19,7 +19,7 @@ public class UI : MonoBehaviour
     {
         aliveBuildings.text = AliveBuildings.ToString(); 
     }
-    public void ChangeGameStatisticUI(float TimeOfLive)
+    public void ChangeGameAliveTimeUI(float TimeOfLive)
     {
         timeOfLive.text = TimeOfLive.ToString();
     }

@@ -13,8 +13,7 @@ public class GameStatistic : MonoBehaviour
     private void StartCounting()
     {
         startTime = Time.time;
-        StartCoroutine(TimeCounting());
-       
+        StartCoroutine(TimeCounting());      
     }
  
     public delegate void OnChangedAliveBuildingsCount(int aliveBuildings);
@@ -25,7 +24,7 @@ public class GameStatistic : MonoBehaviour
     public void BuildingWasEaten()
     {
         aliveBuildings--;
-        onChangedAliveBuildingsCount.Invoke(aliveBuildings );
+        onChangedAliveBuildingsCount.Invoke(aliveBuildings);
     }
     public void OnBuild()
     {
@@ -36,11 +35,11 @@ public class GameStatistic : MonoBehaviour
     }
     IEnumerator TimeCounting()
     {
-        while (aliveBuildings >= buildingsForWin)
-        {
-            currentTime += Time.deltaTime;
-            onChangedAliveTime.Invoke(currentTime - startTime);
-        }
+        //while (aliveBuildings >= buildingsForWin)
+        //{
+        //    currentTime += Time.deltaTime;
+        //    onChangedAliveTime.Invoke(currentTime - startTime);      падает в бесконечный цикл
+        //}
         yield return null;
     }
 }
