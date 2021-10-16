@@ -51,6 +51,10 @@ public class Enemy : MonoBehaviour
     {
         return buildings = GameObject.FindGameObjectsWithTag("Building");
     }
+    public void EatBuilding()
+    {
+
+    }
     private GameObject ClosestBuilding(GameObject[] buildingsArray)
     {
         GameObject tMin = null;
@@ -76,12 +80,11 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "building")
+        if (collision.tag == "Building")
         {
             var healthComponent = collision.GetComponent<Health>();
             if (healthComponent != null)
-            {
-                Debug.LogWarning("col");
+            {               
                 healthComponent.TakeDamage(damage);
             }
         }

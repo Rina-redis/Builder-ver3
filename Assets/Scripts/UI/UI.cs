@@ -7,14 +7,20 @@ public class UI : MonoBehaviour
 {
     [SerializeField] private Text exp;
     [SerializeField] private Text lvl;
-    private void Start()
-    {
-        Levels.onChangedTxt += ChangeExpAndLvlTxt;
-    }
-    private void ChangeExpAndLvlTxt(float Exp, int Lvl)
+    [SerializeField] private Text aliveBuildings;
+    [SerializeField] private Text timeOfLive;
+
+    public void ChangeCharacterStatisticUI(float Exp, int Lvl)
     {
         exp.text = Exp.ToString();
-        lvl.text = Lvl.ToString();    
+        lvl.text = Lvl.ToString();
     }
-    
+    public void ChangeGameStatisticUI(int AliveBuildings)
+    {
+        aliveBuildings.text = AliveBuildings.ToString(); 
+    }
+    public void ChangeGameStatisticUI(float TimeOfLive)
+    {
+        timeOfLive.text = TimeOfLive.ToString();
+    }
 }

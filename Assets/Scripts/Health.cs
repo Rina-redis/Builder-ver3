@@ -15,7 +15,11 @@ public class Health : MonoBehaviour
         currentHealth -= amout;
         if(currentHealth<=0)
         {
-            GameObject.Destroy(this.gameObject);
+            Die();  
         }
+    }
+    public virtual void Die()
+    {      
+        GameObject.Destroy(this.gameObject);
     }
 }

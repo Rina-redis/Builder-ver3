@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterStatistic))]
 public class BuildOrder : MonoBehaviour
 {
     [SerializeField] private GameObject currentObj;
     [SerializeField] private float delta = 3f;
     public GameObject[] objectsForBuilding;
-  
-    private Vector3 placeForBuilding;
-   // private bool isReadyToBuild = false;
     
+    private Vector3 placeForBuilding;
+    private CharacterStatistic characterStatistic;
+    private GameStatistic gameStatistic;
+    // private bool isReadyToBuild = false;
 
-    public delegate void OnBuild();
-    public static event OnBuild onBuild;
-
+    private void Start()
+    {
+        characterStatistic = GetComponent<CharacterStatistic>();
+    }
     public void StartOrder()
     {
         currentObj = GetObjToBuild();
@@ -30,7 +33,7 @@ public class BuildOrder : MonoBehaviour
     }
     private GameObject GetObjToBuild()
     {
-        int numberOfObj = Levels.currentLvl; 
+        int numberOfObj = CharacterStatistic.currentLvl; 
         if (numberOfObj < objectsForBuilding.Length)
         {
             return objectsForBuilding[numberOfObj];
@@ -43,7 +46,8 @@ public class BuildOrder : MonoBehaviour
     private void InstantiateObject()
     {
         Instantiate(currentObj, placeForBuilding, new Quaternion());
-        onBuild.Invoke();
+        characterStatistic.OnBuild();
+        Game.Instance.gameStatistic.OnBuild();
     }
     
     //private IEnumerator readyToBuild()

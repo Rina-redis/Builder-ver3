@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4815912585096950216}
   - component: {fileID: 7344703594508431626}
   - component: {fileID: 8902741291049345352}
-  - component: {fileID: 5918026201037622966}
+  - component: {fileID: 8144407425780462057}
   m_Layer: 0
   m_Name: Shalash
   m_TagString: Building
@@ -159,7 +159,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.464884, y: 5.3597193}
   m_EdgeRadius: 0
---- !u!114 &5918026201037622966
+--- !u!114 &8144407425780462057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1804011069654910661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55e23891d18839c468833dc88ce361c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 715f70074a7fafd46a8e3470cb0e49c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 55
