@@ -6,6 +6,7 @@ public class Game : MonoBehaviour
 {
     public GameStatistic gameStatistic;
     public CharacterStatistic characterStatistic;
+    public BuildinsLiveTimer buildinsLiveTimer;
     public UI ui;
 
     private static Game instance;
@@ -23,11 +24,13 @@ public class Game : MonoBehaviour
             instance = this;
         }
     }
+
     private void Start()
     {
+       // Screen.SetResolution((int)Screen.width, (int)Screen.height, true);
         characterStatistic.onChangedTxt += ui.ChangeCharacterStatisticUI;
         gameStatistic.onChangedAliveBuildingsCount += ui.ChangeGameStatisticUI;
-        gameStatistic.onChangedAliveTime += ui.ChangeGameAliveTimeUI;
+        buildinsLiveTimer.onChangedAliveTime += ui.ChangeGameAliveTimeUI;
     }
 
 }

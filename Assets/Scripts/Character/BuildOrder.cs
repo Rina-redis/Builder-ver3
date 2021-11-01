@@ -9,7 +9,7 @@ public class BuildOrder : MonoBehaviour
     [SerializeField] private float delta = 3f;
     public GameObject[] objectsForBuilding;
     
-    private Vector3 placeForBuilding;
+    
     private CharacterStatistic characterStatistic;
     private GameStatistic gameStatistic;
     // private bool isReadyToBuild = false;
@@ -26,9 +26,9 @@ public class BuildOrder : MonoBehaviour
     
     private void TryToBuild()
     {
-        placeForBuilding = new Vector3(transform.position.x + delta, transform.position.y, transform.position.z);
+        Vector3 placeForBuilding = new Vector3(transform.position.x + delta, transform.position.y, transform.position.z);
         //StartCoroutine(readyToBuild());
-        InstantiateObject();
+        InstantiateObject(placeForBuilding);
         //  placeForBuilding = GetPlaceForBuilding();
     }
     private GameObject GetObjToBuild()
@@ -43,11 +43,30 @@ public class BuildOrder : MonoBehaviour
             return objectsForBuilding[0];
         }
     }
-    private void InstantiateObject()
+
+    private void InstantiateObject(Vector3 placeForBuilding)
     {
-        Instantiate(currentObj, placeForBuilding, new Quaternion());
-        characterStatistic.OnBuild();
-        Game.Instance.gameStatistic.OnBuild();
+        var spriteRenderer = currentObj.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+            return;
+        
+        Bounds bound = spriteRenderer.bounds;
+        bound.center = placeForBuilding;
+
+        var intersectedObjects = Physics2D.OverlapAreaAll(bound.min, bound.max);
+        bool canBuild = true;
+        foreach (Collider2D collider in intersectedObjects)
+        {
+            if (collider.tag == "Building")
+                canBuild = false;
+        }
+
+        if (canBuild)
+        {
+            Instantiate(currentObj, placeForBuilding, new Quaternion());
+            characterStatistic.OnBuild();
+            Game.Instance.gameStatistic.OnBuild();
+        }       
     }
     
     //private IEnumerator readyToBuild()

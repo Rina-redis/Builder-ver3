@@ -7,6 +7,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]private float movementSpeed = 5f;
+    [SerializeField] private Joystick joystick;
     Rigidbody2D rigidbody;
     Animator animator;
 
@@ -18,8 +19,10 @@ public class Movement : MonoBehaviour
     }
     private void Move()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        //movement.x = Input.GetAxisRaw("Horizontal");
+        //movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = joystick.Horizontal;
+        movement.y = joystick.Vertical;
     }
     private void FixedUpdate()
     {
