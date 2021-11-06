@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStatistic))]
 public class BuildOrder : MonoBehaviour
 {
-    [SerializeField] private GameObject currentObj;
-    [SerializeField] private float delta = 3f;
+    private GameObject currentObj;
+    [SerializeField] private float deltaForBuilding = 3f;
     public GameObject[] objectsForBuilding;
     
     
@@ -26,7 +26,7 @@ public class BuildOrder : MonoBehaviour
     
     private void TryToBuild()
     {
-        Vector3 placeForBuilding = new Vector3(transform.position.x + delta, transform.position.y, transform.position.z);
+        Vector3 placeForBuilding = new Vector3(transform.position.x + deltaForBuilding, transform.position.y, transform.position.z);
         //StartCoroutine(readyToBuild());
         InstantiateObject(placeForBuilding);
         //  placeForBuilding = GetPlaceForBuilding();

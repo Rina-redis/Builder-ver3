@@ -27,7 +27,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-       // Screen.SetResolution((int)Screen.width, (int)Screen.height, true);
+      //  Screen.SetResolution((int)Screen.width*2, (int)Screen.height*2, true);
         characterStatistic.onChangedTxt += ui.ChangeCharacterStatisticUI;
         gameStatistic.onChangedAliveBuildingsCount += ui.ChangeGameStatisticUI;
         buildinsLiveTimer.onChangedAliveTime += ui.ChangeGameAliveTimeUI;

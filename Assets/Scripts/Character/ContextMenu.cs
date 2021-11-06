@@ -6,6 +6,8 @@ public class ContextMenu : MonoBehaviour
 {
     [SerializeField] private Transform target;
     private bool enabled;
+    private float aliveTimeButton = 0;
+    private int maxAliveTime = 5;
     [SerializeField]private float delta = 5f;
     private void Start()
     {
@@ -15,7 +17,11 @@ public class ContextMenu : MonoBehaviour
     {
        // gameObject.transform.position = new Vector3(target.position.x + delta, target.position.y + delta, target.position.z + delta);//gavno kakoeto
         transform.position = target.position + Vector3.one * delta;
-        
+        if (aliveTimeButton > maxAliveTime)
+        {
+            gameObject.active = false;
+            enabled = !enabled;
+        }
     }
     public void TurnOnOff()
     {
@@ -30,4 +36,5 @@ public class ContextMenu : MonoBehaviour
             enabled = !enabled;
         }
     }
+
 }

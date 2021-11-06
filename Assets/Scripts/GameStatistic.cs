@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class GameStatistic : MonoBehaviour
 {
+    [SerializeField] private float buildingsForWin = 5;
+
     private int aliveBuildings = 0;
     private float startTime = 0;
-   private float buildingsForWin = 5;
     private float currentTime;
     private BuildinsLiveTimer timer;
 
@@ -17,20 +18,16 @@ public class GameStatistic : MonoBehaviour
     }
     private void StartCounting()
     {       
-     //   Game.Instance.OnTimerCreated(timer);
         timer.StartTimer();
     }
     private void StopCounting()
     {
-        //   Game.Instance.OnTimerCreated(timer);
         timer.Reset();
     }
 
     public delegate void OnChangedAliveBuildingsCount(int aliveBuildings);
     public event OnChangedAliveBuildingsCount onChangedAliveBuildingsCount;
 
-    //public delegate void OnChangedAliveTime(float timeOfLive);
-    //public event OnChangedAliveTime onChangedAliveTime;
     public void BuildingWasEaten()
     {
         aliveBuildings--;
