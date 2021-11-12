@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LiveTimer : MonoBehaviour
 {
-    private float startTime = 0f;
-    private float currentTime = 0f;
+    protected float startTime = 0f;
+    protected float currentTime = 0f;
 
     public void StartTimer()
     {

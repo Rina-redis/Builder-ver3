@@ -2,37 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildinsLiveTimer : MonoBehaviour
+public class BuildinsLiveTimer : LiveTimer
 {
-    private float startTime = 0f;
-    private float currentTime = 0f;
- 
     public event System.Action<float> onChangedAliveTime;
 
-    public void StartTimer()
-    {
-        startTime = Time.time;
-        currentTime = startTime;
-    }
-    public void Reset()
-    {
-        startTime = 0f;
-        currentTime = 0f;
-    }
     void Update()
     {
         OnUpdate();
     }
-    protected virtual void OnUpdate()
+    protected override void OnUpdate()
     {
         if (startTime > 0)
         {
             currentTime += Time.deltaTime;
-            onChangedAliveTime.Invoke(TimeOfBuilddingsLive());
+            onChangedAliveTime.Invoke(TimeOfLive());
         }
-    }
-    public float TimeOfBuilddingsLive()
-    {
-        return currentTime - startTime;
     }
 }

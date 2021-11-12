@@ -1926,7 +1926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2050905509
 Transform:
   m_ObjectHideFlags: 0
@@ -2084,6 +2084,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawnPos
       objectReference: {fileID: 0}
+    - target: {fileID: 3400987154588536983, guid: 48f41469557a1f94d8ca76be24f44bfb, type: 3}
+      propertyPath: enemysToSpawn.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400987154588536983, guid: 48f41469557a1f94d8ca76be24f44bfb, type: 3}
+      propertyPath: enemysToSpawn.Array.data[0]
+      value: 
+      objectReference: {fileID: 3827828040573713371, guid: c3d5a0681f36c0247bd33d6d56e03dc5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48f41469557a1f94d8ca76be24f44bfb, type: 3}
 --- !u!1001 &7973847661015927217

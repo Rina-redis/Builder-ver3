@@ -5,22 +5,25 @@ using UnityEngine;
 public class ContextMenu : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    private bool enabled;
-    private float aliveTimeButton = 0;
+    [SerializeField] private float delta = 5f;
+    private bool enabled;   
     private int maxAliveTime = 5;
-    [SerializeField]private float delta = 5f;
+    private LiveTimer aliveTimer = new LiveTimer();
     private void Start()
     {
         enabled = false;
+       // aliveTimer = new LiveTimer();
     }
     private void FixedUpdate()
     {
-       // gameObject.transform.position = new Vector3(target.position.x + delta, target.position.y + delta, target.position.z + delta);//gavno kakoeto
+     
         transform.position = target.position + Vector3.one * delta;
-        if (aliveTimeButton > maxAliveTime)
+        Debug.Log(aliveTimer.TimeOfLive());
+        if ( aliveTimer.TimeOfLive() > maxAliveTime)
         {
             gameObject.active = false;
             enabled = !enabled;
+            aliveTimer.Reset();
         }
     }
     public void TurnOnOff()
@@ -29,12 +32,13 @@ public class ContextMenu : MonoBehaviour
         {
             gameObject.active = false;
             enabled = !enabled;
+            aliveTimer.Reset();
         }
         else
         {
             gameObject.active = true;
+            aliveTimer.StartTimer();
             enabled = !enabled;
         }
     }
-
 }

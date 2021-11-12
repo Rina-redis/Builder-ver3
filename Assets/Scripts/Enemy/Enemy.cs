@@ -11,7 +11,7 @@ public enum State
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float damage = 10f;   
-    [SerializeField] private Transform spawnPosition;
+    [SerializeField] public Transform spawnPosition;
     public State state = State.CanAttack;
     private Transform closestBuilding;
     private GameObject[] buildings;
