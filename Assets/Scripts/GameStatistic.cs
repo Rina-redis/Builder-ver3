@@ -41,7 +41,7 @@ public class GameStatistic : MonoBehaviour
     {
         aliveBuildings++;
         onChangedAliveBuildingsCount.Invoke(aliveBuildings );
-        if (aliveBuildings >= buildingsForWin) //state
+        if (aliveBuildings == buildingsForWin) //state
             StartCounting();
     }
     

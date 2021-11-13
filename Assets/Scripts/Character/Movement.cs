@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
 {
     [SerializeField]private float movementSpeed = 5f;
     [SerializeField] private Joystick joystick;
-    Rigidbody2D rigidbody;
-    Animator animator;
+    private Rigidbody2D rigidbody;
+    private Animator animator;
 
     public Vector2 movement;
     private void Start()

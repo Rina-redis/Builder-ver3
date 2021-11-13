@@ -1,10 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Assets;
 
 public class EnemySpawnBase : MonoBehaviour
 {
-    [SerializeField] GameObject[] enemysToSpawn;
+    [SerializeField] public string typeOfEnemy;
+    public EnemySpawnBase(string TypeOfEnemy)
+    {
+        typeOfEnemy = TypeOfEnemy;
+    }
+    private EnemyFactory enemyFactory;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
@@ -15,13 +23,13 @@ public class EnemySpawnBase : MonoBehaviour
     }
     private void Start()
     {
-        EnemyFabric();
+        enemyFactory = GetComponent<EnemyFactory>();
+        var enemy = enemyFactory.GetEnemyByName(typeOfEnemy);
+        Spawn(enemy);
+    }
+    private void Spawn(GameObject enemy)
+    {
+        Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
     }
 
-    private void EnemyFabric()
-    {
-        var enemy = Instantiate(enemysToSpawn[0], gameObject.transform.position, Quaternion.identity);
-        var enemyScript = enemy.GetComponent<Enemy>();
-        enemyScript.spawnPosition = gameObject.transform;
-    }
 }

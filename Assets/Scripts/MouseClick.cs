@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseClick : MonoBehaviour
 {
-    [SerializeField]private ContextMenu contextMenu;
+    [SerializeField] private ContextMenu contextMenu;
     private void OnMouseDown()
     {      
         contextMenu.TurnOnOff();

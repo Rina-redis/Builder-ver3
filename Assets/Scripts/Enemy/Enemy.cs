@@ -10,23 +10,23 @@ public enum State
 }
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float damage = 10f;   
-    [SerializeField] public Transform spawnPosition;
+    [SerializeField] protected float damage = 10f;   
+    public Transform spawnPosition;
     public State state = State.CanAttack;
-    private Transform closestBuilding;
-    private GameObject[] buildings;
-    private NavMeshAgent agent;
-    private void Start()
+    protected Transform closestBuilding;
+    protected GameObject[] buildings;
+    protected NavMeshAgent agent;
+    protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
-    private void Update()
+    protected void Update()
     {
         AiCycle();
     }
-    private void AiCycle()
+    protected virtual void AiCycle()
     {
         switch (state)
         {
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         }     
     }
 
-    private void FindBuildingAndAttack()
+    protected void FindBuildingAndAttack()
     {
         buildings = FindAllBuildings();
         GameObject closestBuilding = ClosestBuilding(buildings);
@@ -47,15 +47,11 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(closestBuilding.transform.position);
     }
 
-    private GameObject[] FindAllBuildings()
+    protected GameObject[] FindAllBuildings()
     {
         return buildings = GameObject.FindGameObjectsWithTag("Building");
     }
-    public void EatBuilding()
-    {
-
-    }
-    private GameObject ClosestBuilding(GameObject[] buildingsArray)
+    protected GameObject ClosestBuilding(GameObject[] buildingsArray)
     {
         GameObject tMin = null;
         float minDist = Mathf.Infinity;
@@ -71,14 +67,14 @@ public class Enemy : MonoBehaviour
         }
         return tMin;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Character")
         {           
             state = State.GoToBase;
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    protected void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Building")
         {

@@ -6,7 +6,7 @@ public class CameraFollowing : MonoBehaviour
 {
     [SerializeField]private Transform target;
     [SerializeField] private float cameraDistance = 30.0f;
-    Vector3 targetPosition;
+    private Vector3 targetPosition;
     private void Awake()
     {       
         GetComponent<Camera>().orthographicSize = ((Screen.height / 2) / cameraDistance);
