@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameStatistic : MonoBehaviour
 {
-    [SerializeField] private float buildingsForWin = 5;
+    [SerializeField] public float buildingsForWin = 5;
+    [SerializeField] public float timeForWin = 5;
 
     private int aliveBuildings = 0;
     private float startTime = 0;
@@ -32,10 +33,8 @@ public class GameStatistic : MonoBehaviour
     {
         aliveBuildings--;
         onChangedAliveBuildingsCount.Invoke(aliveBuildings);
-        if (aliveBuildings <= buildingsForWin) //state
+        if (aliveBuildings < buildingsForWin) //state
             StopCounting();
-
-
     }
     public void OnBuild()
     {

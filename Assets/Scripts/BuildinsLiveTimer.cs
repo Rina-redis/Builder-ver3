@@ -16,6 +16,7 @@ public class BuildinsLiveTimer : LiveTimer
         {
             currentTime += Time.deltaTime;
             onChangedAliveTime.Invoke(TimeOfLive());
+            Game.Instance.CheckIfWin(TimeOfLive());
         }
     }
 }

@@ -27,10 +27,16 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-      //  Screen.SetResolution((int)Screen.width*2, (int)Screen.height*2, true);
         characterStatistic.onChangedTxt += ui.ChangeCharacterStatisticUI;
         gameStatistic.onChangedAliveBuildingsCount += ui.ChangeGameStatisticUI;
         buildinsLiveTimer.onChangedAliveTime += ui.ChangeGameAliveTimeUI;
     }
 
+    public void CheckIfWin(float timeOfLive)
+    {
+        if (timeOfLive > gameStatistic.timeForWin)
+        {
+            ui.ShowWinMenu();
+        }
+    }
 }

@@ -17,13 +17,8 @@ namespace Assets
             }
             return spawnBasePrefab;
         }
-        private void Start()
-        {
-           
-        }
         private Vector3 GetRandomPosition()
-        {
-            
+        {            
             return new Vector3(Random.RandomRange(0,10), Random.RandomRange(0, 10), 0);
         }
     }

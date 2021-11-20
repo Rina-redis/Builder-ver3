@@ -21,8 +21,8 @@ namespace Assets
                         break;
                 }
                 var enemyScript = enemy.GetComponent<Enemy>();
-                enemyScript.spawnPosition = gameObject.transform; 
-                
+                enemy.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                enemyScript.spawnPosition = gameObject.transform;         
             }
             return enemy;
         }

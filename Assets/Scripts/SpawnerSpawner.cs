@@ -16,13 +16,14 @@ public class SpawnerSpawner : MonoBehaviour
 
         for (int i = 0; i < countOfSpawners; i++)
         {
-            var spavner = spawnerFactory.GetSpavnerByType(enemyTypes[i]);
-            Spawn(spavner);
+            var spawner = spawnerFactory.GetSpavnerByType(enemyTypes[i]);
+            Spawn(spawner);
+            Debug.Log(spawner.transform.rotation);
         }
     }
-    private void Spawn(GameObject Spavner)
+    private void Spawn(GameObject Spawner)
     {
-        Instantiate(Spavner, Spavner.transform.position, Quaternion.identity);
+        Instantiate(Spawner, Spawner.transform.position, Spawner.transform.rotation);
     }
 }
 

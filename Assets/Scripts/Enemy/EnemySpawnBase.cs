@@ -29,7 +29,8 @@ public class EnemySpawnBase : MonoBehaviour
     }
     private void Spawn(GameObject enemy)
     {
-        Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+        Instantiate(enemy, gameObject.transform.position, new Quaternion(0, 0, 0, 0)) ;
+        Debug.Log(enemy.transform.rotation);
     }
 
 }
