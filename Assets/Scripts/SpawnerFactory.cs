@@ -8,18 +8,19 @@ namespace Assets
     {
         [SerializeField] private GameObject spawnBasePrefab;
         [SerializeField] private Tilemap tilemap;
-        public GameObject GetSpavnerByType(string Type)
+        public GameObject GetSpavnerByType(string enemyType)
         {
             if (spawnBasePrefab != null)
             {
                 var spawnBaseScript = spawnBasePrefab.GetComponent<EnemySpawnBase>();
+                spawnBaseScript.Init(enemyType);
                 spawnBaseScript.gameObject.transform.position = GetRandomPosition();
             }
             return spawnBasePrefab;
         }
         private Vector3 GetRandomPosition()
         {            
-            return new Vector3(Random.RandomRange(0,10), Random.RandomRange(0, 10), 0);
+            return new Vector3(Random.Range(0,10), Random.Range(0, 10), 0);
         }
     }
 }

@@ -7,7 +7,8 @@ using Assets;
 public class EnemySpawnBase : MonoBehaviour
 {
     [SerializeField] public string typeOfEnemy;
-    public EnemySpawnBase(string TypeOfEnemy)
+    public Camera camera;
+    public void Init (string TypeOfEnemy)
     {
         typeOfEnemy = TypeOfEnemy;
     }
@@ -29,8 +30,8 @@ public class EnemySpawnBase : MonoBehaviour
     }
     private void Spawn(GameObject enemy)
     {
-        Instantiate(enemy, gameObject.transform.position, new Quaternion(0, 0, 0, 0)) ;
-        Debug.Log(enemy.transform.rotation);
+        var enemyTest = Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+        enemyTest.transform.SetParent(gameObject.transform);
+  
+      }
     }
-
-}

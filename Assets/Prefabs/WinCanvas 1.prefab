@@ -228,7 +228,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3468972706585092851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3848353536010154713}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeSceneTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Start Scene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2387078657425142985
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +408,7 @@ GameObject:
   - component: {fileID: 3992501876882672839}
   - component: {fileID: 3992501876882672836}
   - component: {fileID: 3645997037403456779}
+  - component: {fileID: 3848353536010154713}
   m_Layer: 5
   m_Name: WinCanvas 1
   m_TagString: Untagged
@@ -499,6 +512,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4d1328703e7def40bc4c31e84765aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3848353536010154713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992501876882672837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f630e8d976c54b4da33c24840782096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4030426698126085961

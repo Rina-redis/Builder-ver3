@@ -4,7 +4,6 @@ using UnityEngine;
 public class WinMenu : MonoBehaviour
 {
     private Canvas canvas;
-   // private GameObject winMenu;
     private void Start()
     {
         canvas = gameObject.GetComponent<Canvas>();

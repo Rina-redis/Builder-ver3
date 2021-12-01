@@ -11,18 +11,18 @@ public enum State
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float damage = 10f;   
-    public Transform spawnPosition;
+    public Vector3 spawnPosition;
     public State state = State.CanAttack;
     protected Transform closestBuilding;
     protected GameObject[] buildings;
     protected NavMeshAgent agent;
-    protected void Start()
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
-    protected void Update()
+    private void Update()
     {
         AiCycle();
     }
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
                 FindBuildingAndAttack();
                 break;
             case State.GoToBase:
-                agent.SetDestination(spawnPosition.position);
+                agent.SetDestination(spawnPosition);
                 break;
         }     
     }

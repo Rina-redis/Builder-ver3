@@ -11,19 +11,11 @@ namespace Assets
         [SerializeField] private GameObject[] enemys;
         public GameObject GetEnemyByName(string Type)
         {
-            GameObject enemy = new GameObject();           
-            if(enemys.Length != 0)
-            {
-                switch (Type)
-                {
-                    case "CatEnemy":
-                        enemy = enemys[0];
-                        break;
-                }
+            GameObject enemy = enemys[0];  
+           
                 var enemyScript = enemy.GetComponent<Enemy>();
-                enemy.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-                enemyScript.spawnPosition = gameObject.transform;         
-            }
+                enemyScript.spawnPosition = gameObject.transform.position;
+           
             return enemy;
         }
     }

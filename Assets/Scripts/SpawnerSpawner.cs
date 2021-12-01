@@ -8,6 +8,7 @@ public class SpawnerSpawner : MonoBehaviour
 {
     [SerializeField] private int countOfSpawners;
     [SerializeField] private string[] enemyTypes;
+   
     private SpawnerFactory spawnerFactory;
 
     private void Start()
@@ -21,9 +22,11 @@ public class SpawnerSpawner : MonoBehaviour
             Debug.Log(spawner.transform.rotation);
         }
     }
-    private void Spawn(GameObject Spawner)
+    private void Spawn(GameObject spawner)
     {
-        Instantiate(Spawner, Spawner.transform.position, Spawner.transform.rotation);
+        var enemySpawner = Instantiate(spawner, spawner.transform.position, Quaternion.identity);
+        enemySpawner.transform.SetParent(gameObject.transform);
+
     }
 }
 
