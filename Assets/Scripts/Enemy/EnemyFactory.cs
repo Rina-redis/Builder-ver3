@@ -8,14 +8,13 @@ namespace Assets
 {
     class EnemyFactory : MonoBehaviour
     {
-        [SerializeField] private GameObject[] enemys;
+       // [SerializeField] private GameObject[] enemys;
+        [SerializeField] private GameObject enemyPrefab;
         public GameObject GetEnemyByName(string Type)
         {
-            GameObject enemy = enemys[0];  
-           
-                var enemyScript = enemy.GetComponent<Enemy>();
-                enemyScript.spawnPosition = gameObject.transform.position;
-           
+            var enemy = enemyPrefab;
+            var enemyScript = enemy.GetComponent<Enemy>();
+            enemyScript.spawnPosition = gameObject.transform.position;          
             return enemy;
         }
     }
