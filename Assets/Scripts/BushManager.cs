@@ -6,21 +6,41 @@ using UnityEngine;
 
 public class BushManager : MonoBehaviour
 {
-    private GameObject[] bushArray;
-    [SerializeField] private int numberOfBushSpawners;
+    public GameObject[] bushGOArray;
+    public Bush[] bushArray;
+    [SerializeField] private int countOfEnemys;
     private void Start()
     {
-        bushArray = GameObject.FindGameObjectsWithTag("Bush");
-        CreteBushSpawners();
+        bushGOArray = GameObject.FindGameObjectsWithTag("Bush");
+        GetBushes();
+        CreteEnemys(countOfEnemys);
     }
 
-    private void CreteBushSpawners()
+    private void GetBushes()
     {
-       foreach(GameObject bush in bushArray)
+        bushArray = Array.ConvertAll(bushGOArray, n => n.GetComponent<Bush>());
+    }
+    private void CreteEnemys(int numberOfEnemys)
+    {
+        int numberOfSpawners = bushGOArray.Length;
+
+        for (int i = 0; i < numberOfEnemys; i++)
         {
-            Bush bushScript = bush.GetComponent<Bush>();
-            bushScript = new BushSpawner();
-            //bush.AddComponent<EnemyFactory>();
+            System.Random rand = new System.Random();
+            int randomBush = rand.Next(0, numberOfSpawners);
+
+            if(bushGOArray[randomBush].GetComponent<Bush>() != null)
+            {
+                Bush bushScript = bushGOArray[randomBush].GetComponent<Bush>();
+                if(bushScript.IsSpawner != true)
+                {
+                    bushScript.SpawnEnemy();
+                }
+                else
+                {
+                    i--;
+                }
+            }
         }
     }
 }

@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float damage = 10f;   
     public Vector3 spawnPosition;
     public State state = State.CanAttack;
+    public Bush closestBush;
     protected Transform closestBuilding;
     protected GameObject[] buildings;
     protected NavMeshAgent agent;
@@ -34,9 +35,30 @@ public class Enemy : MonoBehaviour
                 FindBuildingAndAttack();
                 break;
             case State.GoToBase:
-                agent.SetDestination(spawnPosition);
+
+                if (closestBush == null)
+                {
+                    FindBase();
+                }
+                else
+                {
+                    agent.SetDestination(closestBush.transform.position);
+                }
                 break;
         }     
+    }
+
+    private void FindBase()
+    {
+        closestBush = FindClosestBushPosition();
+        Debug.LogError("Finding Base");       
+    }
+
+    private Bush FindClosestBushPosition()
+    {
+        Bush closestBush = MathHelper.ClosestBush( gameObject.transform.position);
+        closestBush.IsFree = false; //we reserve the bush only for us
+        return closestBush;
     }
 
     protected void FindBuildingAndAttack()
@@ -69,7 +91,7 @@ public class Enemy : MonoBehaviour
     }
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Character")
+        if (collision.tag == "Character" && state != State.GoToBase)
         {           
             state = State.GoToBase;
         }

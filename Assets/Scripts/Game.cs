@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     public BuildinsLiveTimer buildinsLiveTimer;
     public WinMenu winMenu;
     public UI ui;
+    public BushManager bushManager;
     private bool IsGameEnded = false;
 
     private static Game instance;
