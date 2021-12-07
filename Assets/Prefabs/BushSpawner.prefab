@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 3827828040573713371, guid: c3d5a0681f36c0247bd33d6d56e03dc5, type: 3}
   IsSpawner: 0
+  IsFree: 1
 --- !u!61 &189309886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194,7 +195,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.97101355, y: 0.16908169}
+  m_Offset: {x: -0.04225397, y: -0.05318308}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -205,5 +206,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.6879168, y: 4.1371965}
+  m_Size: {x: 0.5811529, y: 0.4565735}
   m_EdgeRadius: 0

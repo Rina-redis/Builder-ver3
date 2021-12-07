@@ -14,14 +14,17 @@ public class Bush : MonoBehaviour
         IsSpawner = true;
         Instantiate(enemyToSpawn, gameObject.transform.position, Quaternion.identity);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
             var enemy = collision.GetComponent<Enemy>();
-            enemy.closestBush = null;
-            enemy.state = State.CanAttack;
-            IsFree = true;
+            enemy.OnCollisionWithBush();
+            BecomeFree();
         }
+    }
+    private void BecomeFree()
+    {
+        IsFree = true;
     }
 }

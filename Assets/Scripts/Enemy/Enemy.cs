@@ -10,7 +10,7 @@ public enum State
 }
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] protected float damage = 10f;   
+    [SerializeField] protected float damage = 10f;
     public Vector3 spawnPosition;
     public State state = State.CanAttack;
     public Bush closestBush;
@@ -38,33 +38,27 @@ public class Enemy : MonoBehaviour
 
                 if (closestBush == null)
                 {
-                    FindBase();
+                    FindClosestBushPosition();
                 }
                 else
                 {
                     agent.SetDestination(closestBush.transform.position);
                 }
                 break;
-        }     
+        }
     }
 
-    private void FindBase()
-    {
-        closestBush = FindClosestBushPosition();
-        Debug.LogError("Finding Base");       
-    }
 
-    private Bush FindClosestBushPosition()
+    private void FindClosestBushPosition()
     {
-        Bush closestBush = MathHelper.ClosestBush( gameObject.transform.position);
+        closestBush = MathHelper.ClosestBush(gameObject.transform.position);
         closestBush.IsFree = false; //we reserve the bush only for us
-        return closestBush;
     }
 
     protected void FindBuildingAndAttack()
     {
         buildings = FindAllBuildings();
-        GameObject closestBuilding = ClosestBuilding(buildings);
+        GameObject closestBuilding = MathHelper.ClosestGameobject(buildings, gameObject.transform.position);
         if (closestBuilding != null)
             agent.SetDestination(closestBuilding.transform.position);
     }
@@ -73,39 +67,31 @@ public class Enemy : MonoBehaviour
     {
         return buildings = GameObject.FindGameObjectsWithTag("Building");
     }
-    protected GameObject ClosestBuilding(GameObject[] buildingsArray)
+    public void OnCollisionWithBush()
     {
-        GameObject tMin = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (GameObject t in buildingsArray)
-        {
-            float dist = Vector3.Distance(t.transform.position, currentPos);
-            if (dist < minDist)
-            {
-                tMin = t;
-                minDist = dist;
-            }
-        }
-        return tMin;
+        closestBush = null;
+        state = State.CanAttack;
     }
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Character" && state != State.GoToBase)
-        {           
+        {
             state = State.GoToBase;
         }
     }
     protected void OnTriggerStay2D(Collider2D collision)
     {
+
         if (collision.tag == "Building")
         {
             var healthComponent = collision.GetComponent<Health>();
             if (healthComponent != null)
-            {               
-                healthComponent.TakeDamage(damage);
+            {
+                {
+                    healthComponent.TakeDamage(damage);
+                }
             }
         }
+
     }
 }
-

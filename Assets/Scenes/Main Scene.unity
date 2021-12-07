@@ -1776,6 +1776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5209030028773301297, guid: b664d3d7fadc4f74a9362f1012767c84, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7647376148351393333, guid: b664d3d7fadc4f74a9362f1012767c84, type: 3}
       propertyPath: contextMenu
       value: 
@@ -1784,6 +1788,22 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 574801922}
+    - target: {fileID: 7647376148351393339, guid: b664d3d7fadc4f74a9362f1012767c84, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.021568388
+      objectReference: {fileID: 0}
+    - target: {fileID: 7647376148351393339, guid: b664d3d7fadc4f74a9362f1012767c84, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.053711414
+      objectReference: {fileID: 0}
+    - target: {fileID: 7647376148351393339, guid: b664d3d7fadc4f74a9362f1012767c84, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6376901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7647376148351393339, guid: b664d3d7fadc4f74a9362f1012767c84, type: 3}
+      propertyPath: m_Size.y
+      value: 1.391758
+      objectReference: {fileID: 0}
     - target: {fileID: 7647376148351393341, guid: b664d3d7fadc4f74a9362f1012767c84, type: 3}
       propertyPath: m_Name
       value: Character
