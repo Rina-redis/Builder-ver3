@@ -11,12 +11,12 @@ public enum State
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float damage = 10f;
-    public Vector3 spawnPosition;
+    [SerializeField] protected GameObject particles;
     public State state = State.CanAttack;
-    public Bush closestBush;
+    private Bush closestBush;
     protected Transform closestBuilding;
-    protected GameObject[] buildings;
     protected NavMeshAgent agent;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     protected void FindBuildingAndAttack()
     {
-        buildings = FindAllBuildings();
+        GameObject[] buildings = FindAllBuildings();
         GameObject closestBuilding = MathHelper.ClosestGameobject(buildings, gameObject.transform.position);
         if (closestBuilding != null)
             agent.SetDestination(closestBuilding.transform.position);
@@ -65,7 +65,8 @@ public class Enemy : MonoBehaviour
 
     protected GameObject[] FindAllBuildings()
     {
-        return buildings = GameObject.FindGameObjectsWithTag("Building");
+        GameObject[] buildings = GameObject.FindGameObjectsWithTag("Building");
+        return buildings;
     }
     public void OnCollisionWithBush()
     {
@@ -77,11 +78,12 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Character" && state != State.GoToBase)
         {
             state = State.GoToBase;
+            GameObject firework = Instantiate(particles, gameObject.transform.position, Quaternion.identity);
+            firework.GetComponent<ParticleSystem>().Play();
         }
     }
     protected void OnTriggerStay2D(Collider2D collision)
     {
-
         if (collision.tag == "Building")
         {
             var healthComponent = collision.GetComponent<Health>();
@@ -92,6 +94,5 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-
     }
 }
