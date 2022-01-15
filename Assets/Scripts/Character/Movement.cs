@@ -23,10 +23,22 @@ public class Movement : MonoBehaviour
         //movement.y = Input.GetAxisRaw("Vertical");
         movement.x = joystick.Horizontal;
         movement.y = joystick.Vertical;
+        if(movement.sqrMagnitude == 0)
+        {
+            animator.SetFloat("Speed", 0);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 3);
+        }
     }
     private void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + movement * movementSpeed * Time.fixedDeltaTime);
+        rigidbody.MovePosition(rigidbody.position + movement * movementSpeed * Time.fixedDeltaTime);        
+    }
+    public void Acceleration()
+    {
+        movementSpeed *= 1.5f;
     }
     private void Update()
     {

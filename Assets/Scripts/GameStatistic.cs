@@ -9,10 +9,11 @@ public class GameStatistic : MonoBehaviour
     [SerializeField] public float timeForWin = 5;
 
     private int aliveBuildings = 0;
-    private float startTime = 0;
-    private float currentTime;
-    private BuildinsLiveTimer timer;
+    public int AliveBuildings => aliveBuildings;
 
+   
+    private BuildinsLiveTimer timer;
+    public float TimeOfLive => timer.TimeOfLive();
     private void Start()
     {
         timer = gameObject.GetComponent<BuildinsLiveTimer>();

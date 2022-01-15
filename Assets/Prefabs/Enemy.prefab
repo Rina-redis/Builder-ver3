@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3827828040573713371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 2}
   m_Children:
   - {fileID: 7917190416522160056}
   m_Father: {fileID: 0}
@@ -166,7 +166,6 @@ MonoBehaviour:
   damage: 0.5
   particles: {fileID: 4563755716864954893, guid: 405887c81601d4c4c95bdb849c018d94, type: 3}
   state: 0
-  closestBush: {fileID: 0}
 --- !u!61 &3824584773455638933
 BoxCollider2D:
   m_ObjectHideFlags: 0
