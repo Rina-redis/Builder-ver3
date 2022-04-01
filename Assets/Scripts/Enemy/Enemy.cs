@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
     }
     protected void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Building")
+        if (collision.tag == "Building" && state == State.CanAttack)
         {
             var healthComponent = collision.GetComponent<Health>();
             if (healthComponent != null)
