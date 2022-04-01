@@ -12,13 +12,17 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float damage = 10f;
     [SerializeField] protected GameObject particles;
+    [SerializeField] protected Color colorOnPlayerTouch;
+
     public State state = State.CanAttack;
     private Bush closestBush;
+    private SpriteRenderer spriteRenderer;
     protected Transform closestBuilding;
     protected NavMeshAgent agent;
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -32,6 +36,7 @@ public class Enemy : MonoBehaviour
         switch (state)
         {
             case State.CanAttack:
+                spriteRenderer.color = new Color(255, 255, 255); //white
                 FindBuildingAndAttack();
                 break;
             case State.GoToBase:
@@ -78,6 +83,7 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Character" && state != State.GoToBase)
         {
             state = State.GoToBase;
+            spriteRenderer.color = colorOnPlayerTouch;
             GameObject firework = Instantiate(particles, gameObject.transform.position, Quaternion.identity);
             firework.GetComponent<ParticleSystem>().Play();
         }
