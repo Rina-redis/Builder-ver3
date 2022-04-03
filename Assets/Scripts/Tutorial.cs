@@ -14,7 +14,7 @@ public class Tutorial : MonoBehaviour
         switch (currentPopUpIndex)
         {
             case 0:
-                if (player.transform.position.magnitude > 15)
+                if (player.transform.position.magnitude > 7)
                     currentPopUpIndex++;
                 break;
             case 1:
