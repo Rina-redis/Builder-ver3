@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,15 @@ public class Tutorial : MonoBehaviour
                 break;
         }
      
+    }
+
+    IEnumerator StopAndResumeGame()
+    {
+        Time.timeScale = 0f;
+
+        yield return new WaitForSeconds(10);
+
+        Time.timeScale = 1f;
     }
 
     private void SetActivePopUp(int popUpIndex)

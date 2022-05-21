@@ -414,6 +414,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -422,9 +423,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -445,6 +446,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -3230,6 +3233,137 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      StaticTiles_88: 9046473720719491347
+      StaticTiles_118: 3303202828743301975
+      StaticTiles_16: 697263188579332857
+      StaticTiles_43: -2500853694136160662
+      StaticTiles_92: -2705709301943233049
+      StaticTiles_123: -3257915799401014922
+      StaticTiles_10: 8836355615528218395
+      StaticTiles_25: 4850357519036910190
+      StaticTiles_84: -1636204746962075222
+      StaticTiles_74: 1201090712233661844
+      StaticTiles_69: 5054877534828551641
+      StaticTiles_76: 3019974863722918537
+      StaticTiles_110: -6485416081974802377
+      StaticTiles_14: 2616475742216903438
+      StaticTiles_3: -6809541827349744084
+      StaticTiles_73: 5542948003364162310
+      StaticTiles_122: -6906513321352955501
+      StaticTiles_113: 1889711656109798777
+      StaticTiles_9: -8856711159147787217
+      StaticTiles_71: 3111943603702527932
+      StaticTiles_97: -4952173717317558602
+      StaticTiles_31: -4349360826091582956
+      StaticTiles_29: 3930483767422172792
+      StaticTiles_120: -4853431949351834360
+      StaticTiles_85: 2140351098325967502
+      StaticTiles_28: -720590898803445421
+      StaticTiles_99: -1662821419559931533
+      StaticTiles_105: -5115705693285644770
+      StaticTiles_0: -5121679780177591087
+      StaticTiles_38: -3083418248208195036
+      StaticTiles_1: 8077677466287833119
+      StaticTiles_90: 7430324580508304729
+      StaticTiles_55: -5376886110497933549
+      StaticTiles_70: 6420689973915712732
+      StaticTiles_111: -8958969975567637023
+      StaticTiles_6: 1052951310111834011
+      StaticTiles_37: -3513808441033824353
+      StaticTiles_33: 633520629062394836
+      StaticTiles_91: -5049591424400830071
+      StaticTiles_128: -5886263043025185386
+      StaticTiles_104: 1714044288092142163
+      StaticTiles_11: -3998188505236960452
+      StaticTiles_63: -1570586869623613430
+      StaticTiles_24: 5105999246965442183
+      StaticTiles_36: -7058228670650967645
+      StaticTiles_65: 4433988599979853149
+      StaticTiles_39: 6986151046811596970
+      StaticTiles_19: -965303832266300578
+      StaticTiles_79: 6994979777716888235
+      StaticTiles_4: -1747464668623181601
+      StaticTiles_116: -206017024389121441
+      StaticTiles_117: -2369025152090106904
+      StaticTiles_7: 5521042936920300546
+      StaticTiles_125: 9061425148659961737
+      StaticTiles_68: 9096671218937384608
+      StaticTiles_98: -8142131061654083344
+      StaticTiles_66: 7783431560382631961
+      StaticTiles_21: 3239036077499565109
+      StaticTiles_51: -2045837313836763184
+      StaticTiles_40: 9135334903985011379
+      StaticTiles_114: 7666921021828336296
+      StaticTiles_42: -7599813575570149130
+      StaticTiles_35: -6868948653100029690
+      StaticTiles_89: -6785768368936419041
+      StaticTiles_52: -4172162812153290286
+      StaticTiles_126: 4536737673962178602
+      StaticTiles_77: 5947247801267043988
+      StaticTiles_54: 3776954304518208885
+      StaticTiles_50: -3662284420259382688
+      StaticTiles_49: 8269297971225741066
+      StaticTiles_44: 6188316573846467593
+      StaticTiles_81: 5149886134930968562
+      StaticTiles_32: 749725569497184760
+      StaticTiles_119: -3735031787148593077
+      StaticTiles_34: 4234904448748631367
+      StaticTiles_112: 1344120425591050125
+      StaticTiles_83: -2705753134738645659
+      StaticTiles_94: -1630689010451002371
+      StaticTiles_93: -6902098084531910094
+      StaticTiles_22: 6036000566159773104
+      StaticTiles_2: -308660712710710342
+      StaticTiles_56: -2090247319380413049
+      StaticTiles_96: -1771620361892942343
+      StaticTiles_5: 4489213517287410106
+      StaticTiles_27: 8492963803141773743
+      StaticTiles_12: -7917129890525423298
+      StaticTiles_15: 4851623543030856201
+      StaticTiles_75: -7733902683978835215
+      StaticTiles_57: -3537313261858676404
+      StaticTiles_46: 2000744244486443423
+      StaticTiles_60: 8029175869657056277
+      StaticTiles_87: -3070412283537492365
+      StaticTiles_109: 5609763956268089476
+      StaticTiles_64: 8188355166112689368
+      StaticTiles_30: 1218138600844545890
+      StaticTiles_53: -298689277686068038
+      StaticTiles_127: 9112984222875028988
+      StaticTiles_23: 896832947643052587
+      StaticTiles_67: 6347942252126598502
+      StaticTiles_58: 3263724175073164566
+      StaticTiles_59: 3396511105994730653
+      StaticTiles_107: 4185304847444023914
+      StaticTiles_121: 4978986325857224093
+      StaticTiles_20: -6928223316853070913
+      StaticTiles_103: 3674145741353733149
+      StaticTiles_45: -5570956165456250563
+      StaticTiles_48: 6899790758529627422
+      StaticTiles_78: 6281880479698043472
+      StaticTiles_61: -8334129247353304558
+      StaticTiles_102: -6768671849648133467
+      StaticTiles_100: 9147140435726638774
+      StaticTiles_8: -4563040014508367836
+      StaticTiles_47: -55628608725610050
+      StaticTiles_82: -8411738948200686171
+      StaticTiles_95: -6715189250768663525
+      StaticTiles_106: -8243454492291465607
+      StaticTiles_108: 6597259127152421066
+      StaticTiles_101: 2099833368303585271
+      StaticTiles_41: -4677106413218082440
+      StaticTiles_115: -9198825781020454714
+      StaticTiles_80: 2650252072326392313
+      StaticTiles_72: 4232703573770125529
+      StaticTiles_26: 3993551277954503563
+      StaticTiles_62: -729426640217315811
+      StaticTiles_18: -6338129047811980471
+      StaticTiles_129: -656663898064603568
+      StaticTiles_17: -3290835872172716601
+      StaticTiles_86: 8336367504355546927
+      StaticTiles_13: -6475024787769101113
+      StaticTiles_124: 7546869058244605068
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
